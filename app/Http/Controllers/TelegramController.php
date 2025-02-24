@@ -7,7 +7,12 @@ use Illuminate\Support\Facades\Http;
 
 class TelegramController extends Controller
 {
-    private $botToken = '7050418756:AAEVnY1AqSt-xQ9xCiLlukd1565rMHib2MU';
+    private $botToken;
+
+    public function __construct()
+    {
+        $this->botToken = env('TG_BOT_TOKEN');
+    }
 
     public function handleWebhook(Request $request)
     {
